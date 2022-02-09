@@ -17,8 +17,9 @@ class Skill(BaseModel):
     level = Column(db_Enum(SkillLevel), nullable=False)
 
     def to_dict(self) -> dict:
+        level = self.level if isinstance(self.level, str) else self.level.value
         return {
             'id': self.id,
             'name': self.name,
-            'level': self.level,
+            'level': level,
         }

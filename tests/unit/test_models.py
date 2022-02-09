@@ -18,7 +18,7 @@ def test_contact_model():
 
 SKILL = {
     'name': 'skill1',
-    'level': SkillLevel.EXPERT,
+    'level': 'Expert',
 }
 
 

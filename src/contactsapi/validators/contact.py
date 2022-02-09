@@ -10,3 +10,8 @@ class ContactValidator:
     address: str
     email: str
     phone_number: str
+
+
+@dataclass
+class ContactSkillValidator:
+    skill_id: int

@@ -2,19 +2,20 @@
 
 In root directory:
 
-Setup:
+###Setup:
 
 pip install -r requirements.txt
+
 alembic upgrade
 
-Run:
-
+###Run:
 contactsapi run
 
-Test:
-
+###Test:
 pytest tests/
 
-Test coverage:
-
+###Test coverage:
 pytest --cov=src/ tests
+
+###Documentation:
+http://127.0.0.1:8000/docs/swagger

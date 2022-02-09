@@ -23,7 +23,7 @@ class Contact(BaseModel):
             'phone_number': self.phone_number,
         }
 
-class ContactSkill(Base):
+class ContactSkill(BaseModel):
     __tablename__ = 'contact_skill'
 
     contact_id = Column(ForeignKey('contact.id'), primary_key=True)

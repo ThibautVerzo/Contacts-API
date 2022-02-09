@@ -3,7 +3,10 @@ from sanic.config import Config
 from contactsapi.config import MyConfig
 from contextvars import ContextVar
 
-from contactsapi.controllers.contact import ContactView, ContactsView
+from contactsapi.controllers.contact import (
+    ContactView, ContactsView, ContactSkillsView, ContactSkillView
+)
+from contactsapi.controllers.skill import SkillView, SkillsView
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 
 from sqlalchemy.orm import sessionmaker
@@ -42,5 +45,19 @@ def create_app(config: Config = None) -> Sanic:
     app.blueprint(bp_contacts)
     bp_contacts.add_route(ContactsView.as_view(), "/contacts")
     bp_contacts.add_route(ContactView.as_view(), "/contacts/<contact_id:int>")
+
+    bp_skills = Blueprint('skills', url_prefix="/api")
+    app.blueprint(bp_skills)
+    bp_skills.add_route(SkillsView.as_view(), "/skills")
+    bp_skills.add_route(SkillView.as_view(), "/skills/<skill_id:int>")
+
+    bp_contacts.add_route(
+        ContactSkillsView.as_view(), "/contacts/<contact_id:int>/skills"
+    )
+    bp_contacts.add_route(
+        ContactSkillView.as_view(),
+        "/contacts/<contact_id:int>/skills/<skill_id:int>",
+    )
+    
 
     return app
