@@ -8,6 +8,8 @@ pip install -r requirements.txt
 
 alembic upgrade
 
+(In case of alembic error use init.sql file in MySQL folder.)
+
 ###Run:
 contactsapi run
 

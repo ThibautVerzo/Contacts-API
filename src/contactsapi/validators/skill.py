@@ -5,5 +5,5 @@ from contactsapi.models.skill import SkillLevel
 
 @dataclass
 class SkillValidator:
-    name: str
-    level: str
+    name: str = 'Python'
+    level: str = 'Expert'
